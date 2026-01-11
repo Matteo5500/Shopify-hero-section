@@ -1,0 +1,124 @@
+<section class="hero-section">
+  <div class="hero-text-column">
+    <h1 class="hero-badge">{{ section.settings.heading }}</h1>
+   <h2 class="hero-main-title">{{ section.settings.subheading_part1 }}<span class="gradient-text">{{ section.settings.subheading_part2 }}</span></h2>
+    <p class="hero-description">{{ section.settings.description }}</p>
+    
+    <div class="hero-buttons">
+      <a class="btn-shop" href="{{ section.settings.shop_link }}">{{ section.settings.shop_label }}</a>
+      <a class="btn-catalog" href="{{ section.settings.catalog_link }}">{{ section.settings.catalog_label }}</a>
+    </div>
+  </div>
+
+  <div class="hero-image-column">
+    {% for block in section.blocks %}
+      {% if block.type == "image" %}
+        <div class="image-container">
+          <img width="500" height="500" src="{{ block.settings.image_url | image_url: width: 1200 }}" alt="Fashion poster" class="hero-img" >
+          
+          <div class="limited-tag">
+            <span class="limited-small">LIMITED</span>
+            <span class="limited-text">{{ section.settings.limited_label }}</span>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    <div class="rating-box">
+      <span class="rating-value">{{ section.settings.rating }} ★★★★★</span>
+      <span class="trust-value">{{ section.settings.trust_text }}</span>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+    "name": "Hero Section",
+    "settings": [
+        {
+        "type": "text",
+        "id": "heading",
+        "label":"heading",
+        "default":"New Collection 2026"
+    },
+    {
+        "type": "text",
+        "id": "subheading_part1",
+        "label": "subheading",
+        "default":"Discover You"
+    },
+    {
+        "type": "text",
+        "id": "subheading_part2",
+        "label": "subheading part 2 with gradient",
+        "default":"Perfect Style"
+    },
+    {
+        "type":"text",
+        "id": "description",
+        "label": "description",
+        "default":"Curated collections of premium products designed to elevate your everyday life. Quality meets affordability"
+    },
+    {
+        "type":"text",
+        "id":"shop_link",
+        "label": "shop link"
+    },
+    {
+        "type": "text",
+        "id": "shop_label",
+        "label":"text button shop"
+    },
+    {
+        "type": "text",
+        "id": "catalog_link",
+        "label": "catalog link for button"
+    },
+    {
+        "type":"text",
+        "id": "catalog_label",
+        "label": "text button catalog "
+    },
+    {
+        "type":"text",
+        "id": "limited_label",
+        "label": "limited label",
+        "default":"LIMITED EDITION"
+    },
+    {
+        "type": "text",
+        "id": "rating",
+        "label": "rating number",
+        "default":"4.9"
+    },
+    {
+        "type": "text",
+        "id": "trust_text",
+        "label": "trust text label",
+        "default":"Trusted by 10k customers"
+    }
+    ],
+    "blocks": [
+        {
+           "type": "image",
+           "name":"image poster",
+           "settings": [
+            {
+                "type":"image_picker",
+                "id": "image_url",
+                "label": "image picker"
+            }
+           ] 
+        }
+    ],
+    "max_blocks": 6,
+    "presets": [
+        {
+            "name": "Hero section by Matteo",
+            "category": "hero"
+        }
+    ]
+}
+{% endschema %}
+
+{{ 'hero-section.css' | asset_url | stylesheet_tag }}

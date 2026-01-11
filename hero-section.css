@@ -1,0 +1,125 @@
+/* hero section css */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 8%;
+  gap: 40px;
+  font-family: sans-serif;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero-text-column {
+  flex: 1;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 16px;
+  background: #f0f2ff;
+  border: 1px solid #e0e4ff;
+  border-radius: 50px;
+  color: #4b5563;
+  margin-bottom: 20px;
+}
+
+.hero-main-title {
+  font-size: 72px;
+  line-height: 1.1;
+  font-weight: 800;
+  margin: 0 0 20px 0;
+  color: #111;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #222121 0%, #6ce2d4 100%);
+  background-clip: text; 
+  color: transparent;    
+  display: inline-block;
+}
+
+.hero-description {
+  font-size: 18px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.btn-shop {
+  background: #000;
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn-catalog {
+  color: #000000;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.hero-image-column {
+  flex: 1;
+  position: relative;
+}
+
+.image-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.limited-tag {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.limited-small { font-size: 10px; color: #999; }
+.limited-text { font-size: 14px; font-weight: bold; }
+
+.rating-box {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.rating-value { font-size: 24px; font-weight: bold; margin-bottom: 5px; }
+.trust-value { font-size: 12px; color: #777; }
+
+
+@media (max-width: 1024px) {
+  .hero-section { flex-direction: column; text-align: center; }
+  .hero-buttons { justify-content: center; }
+  .rating-box { left: 50%; transform: translateX(-50%); bottom: 10px; }
+}
